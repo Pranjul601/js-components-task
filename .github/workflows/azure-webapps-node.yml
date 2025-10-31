@@ -1,0 +1,26 @@
+ name: Run Tests
+
+on: [push, pull_request] # Test tab chalega jab aap naya code push karenge
+
+jobs:
+  build:
+    runs-on: ubuntu-latest # Ek server par chalega
+
+    strategy:
+      matrix:
+        node-version: [18.x] # Hum Node.js v18 ka use karenge
+
+    steps:
+    - uses: actions/checkout@v3 # Code ko server par copy karega
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci # 'npm install' se behtar hai CI ke liye
+
+    - name: Run tests
+      run: npm test # Aapki test command yahaan chalegi
