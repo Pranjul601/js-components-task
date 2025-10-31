@@ -1,11 +1,12 @@
- name: Run Tests
+  
+name: Run Tests
 
 on: [push, pull_request]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+
     strategy:
       matrix:
         node-version: [18.x]
@@ -17,10 +18,9 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-        
+
     - name: Install dependencies
-      # 'npm ci' ki jagah 'npm install' ka use kar rahe hain
-      run: npm install 
-      
+      run: npm install
+
     - name: Run tests
       run: npm test
