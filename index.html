@@ -1,0 +1,113 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Components</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Accessible Modal Task</h1>
+    <button id="open-modal-btn">Open Modal</button>
+
+    <div class="modal-overlay" id="my-modal" hidden>
+        <div class="modal-content" 
+             role="dialog" 
+             aria-modal="true" 
+             aria-labelledby="modal-title">
+            
+            <div class="modal-header">
+                <h2 id="modal-title">Yeh Hai Modal Title</h2>
+                <button id="close-modal-btn" aria-label="Close modal">&times;</button>
+            </div>
+            
+            <div class="modal-body">
+                <p>Yeh modal ka content hai. Aap yahaan kuch bhi daal sakte hain, jaise form inputs.</p>
+                <label for="name">Name:</label>
+                <input type="text" id="name">
+            </div>
+
+            <div class="modal-footer">
+                <button>Submit</button>
+            </div>
+
+        </div>
+    </div>
+    <hr>
+
+    <h2>Accessible Tabs</h2>
+
+    <div class="tabs-container">
+        <div role="tablist" aria-label="Sample Tabs">
+            <button role="tab" 
+                    aria-selected="true" 
+                    aria-controls="panel-1" 
+                    id="tab-1"
+                    tabindex="0">
+                Tab 1
+            </button>
+            <button role="tab" 
+                    aria-selected="false" 
+                    aria-controls="panel-2" 
+                    id="tab-2"
+                    tabindex="-1">
+                Tab 2
+            </button>
+            <button role="tab" 
+                    aria-selected="false" 
+                    aria-controls="panel-3" 
+                    id="tab-3"
+                    tabindex="-1">
+                Tab 3
+            </button>
+        </div>
+
+        <div role="tabpanel" 
+             id="panel-1" 
+             aria-labelledby="tab-1">
+            <p>Yeh **Tab 1** ka content hai.</p>
+        </div>
+        <div role="tabpanel" 
+             id="panel-2" 
+             aria-labelledby="tab-2" 
+             hidden>
+            <p>Yeh **Tab 2** ka content hai. Kuch alag text.</p>
+        </div>
+        <div role="tabpanel" 
+             id="panel-3" 
+             aria-labelledby="tab-3" 
+             hidden>
+            <p>Yeh **Tab 3** ka content hai. Teesra panel.</p>
+        </div>
+    </div>
+    <hr>
+
+    <h2>Accessible Carousel</h2>
+
+    <div class="carousel-container">
+        <div class="carousel" 
+             role="group" 
+             aria-roledescription="carousel" 
+             aria-label="Image Gallery">
+
+            <div class="carousel-track">
+                <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="1 of 3">
+                    <img src="https://placehold.co/600x300/e83468/white?text=Slide+1" alt="Slide 1">
+                </div>
+                <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="2 of 3">
+                    <img src="https://placehold.co/600x300/4d61c4/white?text=Slide+2" alt="Slide 2">
+                </div>
+                <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="3 of 3">
+                    <img src="https://placehold.co/600x300/3ab061/white?text=Slide+3" alt="Slide 3">
+                </div>
+            </div>
+
+            <button class="carousel-btn prev" aria-label="Previous Slide">&lt;</button>
+            <button class="carousel-btn next" aria-label="Next Slide">&gt;</button>
+
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

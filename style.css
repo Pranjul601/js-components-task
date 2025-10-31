@@ -1,0 +1,190 @@
+ /* Page ka basic setup */
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+/* --- MODAL STYLING --- */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Black transparent */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 500px;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.modal-header h2 {
+    margin: 0;
+}
+
+#close-modal-btn {
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.modal-body {
+    padding: 20px 0;
+}
+
+.modal-footer {
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+    text-align: right;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Modal Fix: Yeh batata hai ki jab 'hidden' ho, toh hide karo */
+.modal-overlay[hidden] {
+    display: none;
+}
+
+
+/* --- TABS STYLING --- */
+
+hr {
+    margin: 40px 0;
+}
+
+.tabs-container {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    max-width: 600px;
+    margin-top: 20px;
+}
+
+[role="tablist"] {
+    display: flex;
+    border-bottom: 2px solid #ccc;
+    margin-bottom: 16px;
+}
+
+[role="tab"] {
+    padding: 10px 16px;
+    font-size: 1rem;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+}
+
+[role="tab"]:not([aria-selected="true"]) {
+    color: #555;
+}
+
+[role="tab"][aria-selected="true"] {
+    font-weight: bold;
+    color: #005a9c;
+    border-bottom-color: #005a9c;
+}
+
+[role="tab"]:focus {
+    outline: 2px solid #005a9c;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+[role="tabpanel"] {
+    padding: 10px;
+    /* Modal wala animation reuse kar rahe hain */
+    animation: fadeIn 0.4s ease-out; 
+}
+/* --- CAROUSEL STYLING --- */
+
+.carousel-container {
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden; /* Zaroori hai: Sirf active slide dikhegi */
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.3s ease-in-out; /* Slide animation */
+}
+
+.carousel-slide {
+    flex: 0 0 100%; /* Har slide poori width legi */
+    width: 100%;
+}
+
+.carousel-slide img {
+    width: 100%;
+    display: block;
+}
+
+/* Next/Prev Buttons */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.carousel-btn:hover {
+    background-color: white;
+}
+
+.carousel-btn:focus {
+    outline: 2px solid #005a9c;
+}
+
+.carousel-btn.prev {
+    left: 10px;
+}
+
+.carousel-btn.next {
+    right: 10px;
+}
